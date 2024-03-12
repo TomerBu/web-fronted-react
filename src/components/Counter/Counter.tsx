@@ -12,7 +12,11 @@ function Counter() {
         +
       </button>
       <p>{x}</p>
-      <button className="bg-purple-400 p-5 rounded-xl text-white text-2xl">
+      <button
+        onClick={() => setX(x + 1)}
+      
+        className="bg-purple-400 p-5 rounded-xl text-white text-2xl"
+      >
         -
       </button>
     </div>
