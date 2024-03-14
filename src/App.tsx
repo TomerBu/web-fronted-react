@@ -6,10 +6,15 @@ import Header from "./components/Header/Header";
 import Spinners from "./components/Spinners";
 
 function App() {
-
   return (
     <div>
-      <Button text="Hi" />
+      <Button
+        onClick={() => {
+          alert("hi");
+        }}
+        text="Hi"
+      />
+      
       <Spinners />
       <About />
       <Header />
@@ -20,6 +25,3 @@ function App() {
 }
 
 export default App;
-
-
- 
