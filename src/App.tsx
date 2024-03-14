@@ -8,9 +8,9 @@ import Spinners from "./components/Spinners";
 function App() {
   return (
     <div>
-       <div ></div>
-      <Spinners/>
-      <About/>
+      <Button color="red" text="Hi"/>
+      <Spinners />
+      <About />
       <Header />
       <Counter />
       <h1>Hello World</h1>
