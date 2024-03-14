@@ -13,7 +13,7 @@ function Counter() {
       </button>
       <p>{x}</p>
       <button
-        onClick={() => setX(x + 1)}
+        onClick={() => setX(x - 1)}
       
         className="bg-purple-400 p-5 rounded-xl text-white text-2xl"
       >
