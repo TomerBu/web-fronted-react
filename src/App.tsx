@@ -6,9 +6,10 @@ import Header from "./components/Header/Header";
 import Spinners from "./components/Spinners";
 
 function App() {
+
   return (
     <div>
-      <Button color="red" text="Hi"/>
+      <Button text="Hi" />
       <Spinners />
       <About />
       <Header />
@@ -19,3 +20,6 @@ function App() {
 }
 
 export default App;
+
+
+ 
