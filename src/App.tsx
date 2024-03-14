@@ -11,7 +11,7 @@ import Spinners from "./components/Spinners";
 function App() {
   return (
     <div>
-      <Input placeholder="name"/>
+      <Input label="Name" placeholder="Enter your name"/>
       <Card>
         <FlexRow className="gap-4">
           <h2>Jack Of Spades</h2>
