@@ -1,16 +1,14 @@
+import { FC } from "react";
 
 type ButtonProps = {
-    text: string
-    color: string
-}
+  text: string;
+  color?: string;
+};
 
-const Button = (props: ButtonProps) => {
-  return (
-    <div >
-      {props.color}
-      {props.text}
-    </div>
-  );
+const Button: FC<ButtonProps> = ({ text, color }) => {
+  return <div style={{ backgroundColor: color }}>{text}</div>;
 };
 
 export default Button;
+
+
