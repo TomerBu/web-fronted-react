@@ -5,11 +5,13 @@ import Card from "./components/Card/Card";
 import Counter from "./components/Counter/Counter";
 import FlexRow from "./components/Flex/FlexRow";
 import Header from "./components/Header/Header";
+import Input from "./components/Input/Input";
 import Spinners from "./components/Spinners";
 
 function App() {
   return (
     <div>
+      <Input placeholder="name"/>
       <Card>
         <FlexRow className="gap-4">
           <h2>Jack Of Spades</h2>
