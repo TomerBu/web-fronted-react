@@ -18,4 +18,3 @@ const Button: FC<ButtonProps> = ({ text, variant = "primary", ...rest }) => {
 };
 
 export default Button;
-
