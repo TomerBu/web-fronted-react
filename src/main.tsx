@@ -7,12 +7,20 @@ import Login from "./routes/Login.tsx";
 import Cards from "./routes/Cards.tsx";
 import App from "./App.tsx";
 import Error from "./routes/Error.tsx";
+import Root from "./layouts/Root.tsx";
 
 const router = createBrowserRouter([
-  { path: "/", element: <App />, errorElement: <Error /> },
-  { path: "/register", element: <Register /> },
-  { path: "/login", element: <Login /> },
-  { path: "/cards", element: <Cards /> },
+  {
+    path: "/",
+    element: <Root />,
+    errorElement: <Error />,
+    children: [
+      { index: true, element: <Cards /> },
+      { path: "/register", element: <Register /> },
+      { path: "/login", element: <Login /> },
+      { path: "/cards", element: <Cards /> },
+    ],
+  },
 ]);
 
 ReactDOM.createRoot(document.getElementById("root")!).render(
