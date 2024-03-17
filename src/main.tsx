@@ -5,7 +5,6 @@ import { RouterProvider, createBrowserRouter } from "react-router-dom";
 import Register from "./routes/Register.tsx";
 import Login from "./routes/Login.tsx";
 import Cards from "./routes/Cards.tsx";
-import App from "./App.tsx";
 import Error from "./routes/Error.tsx";
 import Root from "./layouts/Root.tsx";
 

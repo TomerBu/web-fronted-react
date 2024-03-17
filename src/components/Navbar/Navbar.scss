@@ -1,0 +1,25 @@
+.site-navbar {
+  font-size: 28px;
+  display: flex;
+  flex-direction: row;
+  gap: 1rem;
+  justify-content: space-between;
+
+  .nav-left {
+    display: flex;
+    flex-direction: row;
+    gap: 1rem;
+  }
+
+  .nav-right {
+    display: flex;
+    flex-direction: row;
+    gap: 1rem;
+  }
+  
+  .brand {
+    display: flex;
+    flex-direction: row;
+    gap: 1rem;
+  }
+}
