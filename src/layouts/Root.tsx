@@ -2,6 +2,7 @@
 
 import { Outlet } from "react-router-dom";
 import Header from "../components/Header/Header";
+import Footer from "../components/Footer/Footer";
 
 const Root = () => {
   return (
@@ -10,7 +11,7 @@ const Root = () => {
       <main className="flex-1">
         <Outlet />
       </main>
-      <footer className="text-center p-4">© 2024</footer>
+      <Footer />
     </div>
   );
 };
