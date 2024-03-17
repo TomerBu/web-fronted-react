@@ -9,6 +9,7 @@ import Error from "./routes/Error.tsx";
 import Root from "./layouts/Root.tsx";
 import Card from "./routes/Card.tsx";
 import Playground from "./routes/Playground.tsx";
+import Practice from "./routes/Practice.tsx";
 
 const router = createBrowserRouter([
   {
@@ -23,6 +24,7 @@ const router = createBrowserRouter([
       { path: "/cards/:id", element: <Card /> },
       // http://localhost:5173/playground
       { path: "/playground", element: <Playground /> },
+      { path: "/practice", element: <Practice /> },
     ],
   },
 ]);
