@@ -1,7 +1,7 @@
 import { useParams } from "react-router-dom";
 
 const Card = () => {
-  // dynamic route: /cards/:id
+  // dynamic route: /cards/card1
   const { id } = useParams();
   return (
     <div>
