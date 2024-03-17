@@ -7,6 +7,7 @@ import Login from "./routes/Login.tsx";
 import Cards from "./routes/Cards.tsx";
 import Error from "./routes/Error.tsx";
 import Root from "./layouts/Root.tsx";
+import Card from "./routes/Card.tsx";
 
 const router = createBrowserRouter([
   {
@@ -18,6 +19,8 @@ const router = createBrowserRouter([
       { path: "/register", element: <Register /> },
       { path: "/login", element: <Login /> },
       { path: "/cards", element: <Cards /> },
+      { path: "/cards/:id", element: <Card /> },
+    
     ],
   },
 ]);
