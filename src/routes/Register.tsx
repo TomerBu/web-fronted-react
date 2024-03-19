@@ -4,11 +4,15 @@ const Register = () => {
   const [first, setFirst] = useState<string>();
   const [firstErr, setFirstErr] = useState<string>();
 
+  const [last, setLast] = useState<string>();
+  const [lastErr, setLastErr] = useState<string>();
+
   const onRegister = () => {
-    if (!firstErr) {
-      alert(`You entered ${first}`);
-    }else{
-      alert('fill the form')
+    if (!firstErr && !lastErr) {
+      alert(`You entered ${first} ${last}`);
+      //axios.post(url, {first, last})
+    } else {
+      alert("fill the form");
     }
   };
   return (
@@ -33,6 +37,25 @@ const Register = () => {
       />
       {firstErr && <p className="text-red-600">{firstErr}</p>}
 
+      <input
+        onChange={(e) => {
+          const last = e.target.value;
+          if (!last) {
+            setLastErr("last name must not be empty");
+            return;
+          }
+          if (last.length < 2 || last.length > 255) {
+            setLastErr("last name must be between 2-255 characters");
+            return;
+          }
+          setLast(last);
+          setLastErr(null);
+        }}
+        type="text"
+        name="last"
+        placeholder="last"
+      />
+      {lastErr && <p className="text-red-600">{lastErr}</p>}
       <button onClick={onRegister} type="button">
         Register
       </button>
