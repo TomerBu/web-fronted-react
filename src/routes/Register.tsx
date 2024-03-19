@@ -1,64 +1,18 @@
-import { useState } from "react";
+import { useForm } from "react-hook-form";
 
 const Register = () => {
-  const [first, setFirst] = useState<string>();
-  const [firstErr, setFirstErr] = useState<string>();
+  const { register, handleSubmit, control, formState } = useForm();
 
-  const [last, setLast] = useState<string>();
-  const [lastErr, setLastErr] = useState<string>();
-
-  const onRegister = () => {
-    if (!firstErr && !lastErr) {
-      alert(`You entered ${first} ${last}`);
-      //axios.post(url, {first, last})
-    } else {
-      alert("fill the form");
-    }
+  const onRegister = (data) => {
+    console.log(data);
   };
-  return (
-    <form>
-      <input
-        onChange={(e) => {
-          const first = e.target.value;
-          if (!first) {
-            setFirstErr("name must not be empty");
-            return;
-          }
-          if (first.length < 2 || first.length > 255) {
-            setFirstErr("name must be between 2-255 characters");
-            return;
-          }
-          setFirst(first);
-          setFirstErr(null);
-        }}
-        type="text"
-        name="first"
-        placeholder="first"
-      />
-      {firstErr && <p className="text-red-600">{firstErr}</p>}
 
-      <input
-        onChange={(e) => {
-          const last = e.target.value;
-          if (!last) {
-            setLastErr("last name must not be empty");
-            return;
-          }
-          if (last.length < 2 || last.length > 255) {
-            setLastErr("last name must be between 2-255 characters");
-            return;
-          }
-          setLast(last);
-          setLastErr(null);
-        }}
-        type="text"
-        name="last"
-        placeholder="last"
-      />
-      {lastErr && <p className="text-red-600">{lastErr}</p>}
-      <button onClick={onRegister} type="button">
-        Register
-      </button>
+  return (
+    <form onSubmit={handleSubmit(onRegister)}>
+      <input type="text" {...register("firstname")} />
+      <input type="text" {...register("lastname")} />
+      <input type="number" {...register("age")} />
+      <button type="submit">Register</button>
     </form>
   );
 };
