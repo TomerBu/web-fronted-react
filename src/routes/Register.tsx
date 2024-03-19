@@ -23,8 +23,8 @@ const Register = () => {
           maxLength: { value: 255, message: "Too long" },
         })}
       />
-      {errors.name.first && (
-        <p className="text-red-500">{errors.name.first.message}</p>
+      {errors.name?.last && (
+        <p className="text-red-500">{errors.name?.first?.message}</p>
       )}
 
       <input
@@ -36,8 +36,8 @@ const Register = () => {
           maxLength: { value: 255, message: "Too long" },
         })}
       />
-      {errors.name.last && (
-        <p className="text-red-500">{errors.name.last.message as string}</p>
+      {errors.name?.last && (
+        <p className="text-red-500">{errors.name?.last?.message as string}</p>
       )}
 
       <button type="submit">Register</button>
