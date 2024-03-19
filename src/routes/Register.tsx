@@ -1,56 +1,45 @@
 import { useForm } from "react-hook-form";
+import { RegisterUser } from "../@types/types";
 
 const Register = () => {
   const {
     register,
     handleSubmit,
     formState: { errors },
-  } = useForm();
+  } = useForm<RegisterUser>();
 
-  const onRegister = (data) => {
+  const onRegister = (data: RegisterUser) => {
     console.log(data);
   };
 
   return (
     <form noValidate onSubmit={handleSubmit(onRegister)}>
       <input
-        placeholder="firstname"
+        placeholder="First Name"
         type="text"
-        {...register("firstname", {
+        {...register("name.first", {
           required: "This field is mandatory",
           minLength: { value: 2, message: "Too short" },
           maxLength: { value: 255, message: "Too long" },
         })}
       />
-      {errors.firstname && (
-        <p className="text-red-500">{errors.firstname.message as string}</p>
+      {errors.name.first && (
+        <p className="text-red-500">{errors.name.first.message}</p>
       )}
 
       <input
-        placeholder="lastname"
+        placeholder="Last Name"
         type="text"
-        {...register("lastname", {
+        {...register("name.last", {
           required: "This field is mandatory",
           minLength: { value: 2, message: "Too short" },
           maxLength: { value: 255, message: "Too long" },
         })}
       />
-      {errors.lastname && (
-        <p className="text-red-500">{errors.lastname.message as string}</p>
+      {errors.name.last && (
+        <p className="text-red-500">{errors.name.last.message as string}</p>
       )}
 
-      <input
-        placeholder="age"
-        type="number"
-        {...register("age", {
-          required: "This field is mandatory",
-          min: { value: 2, message: "You must be at least 2 years old" },
-          max: { value: 130, message: "You can't be older than 130 years old" },
-        })}
-      />
-      {errors.age && (
-        <p className="text-red-500">{errors.age.message as string}</p>
-      )}
       <button type="submit">Register</button>
     </form>
   );
