@@ -1,6 +1,7 @@
 import { useForm } from "react-hook-form";
 import { RegisterUser } from "../@types/types";
 import patterns from "../validation/patterns";
+import './Register.scss';
 
 const Register = () => {
   const {
@@ -15,7 +16,7 @@ const Register = () => {
 
   return (
     <div className="register-container">
-      <h2 className="text-4xl mb-5 text-center">Register</h2>
+      <h2>Register</h2>
       <form noValidate onSubmit={handleSubmit(onRegister)}>
         {/* firstName */}
         <section>
@@ -247,7 +248,7 @@ const Register = () => {
         </section>
 
         {/* isBusiness */}
-        <section>
+        <section className="checkbox-container">
           <label htmlFor="isBusiness">Business</label>
           <input
             id="isBusiness"
