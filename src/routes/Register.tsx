@@ -9,9 +9,27 @@ const Register = () => {
 
   return (
     <form onSubmit={handleSubmit(onRegister)}>
-      <input type="text" {...register("firstname")} />
-      <input type="text" {...register("lastname")} />
-      <input type="number" {...register("age")} />
+      <input
+        required
+        minLength={2}
+        maxLength={10}
+        type="text"
+        {...register("firstname")}
+      />
+      <input
+        required
+        minLength={2}
+        maxLength={255}
+        type="text"
+        {...register("lastname")}
+      />
+      <input
+        required
+        min={2}
+        max={130}
+        type="number"
+        {...register("age")}
+      />
       <button type="submit">Register</button>
     </form>
   );
