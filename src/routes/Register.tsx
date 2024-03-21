@@ -6,7 +6,8 @@ import { DevTool } from "@hookform/devtools";
 import { BsEye, BsEyeSlashFill } from "react-icons/bs";
 import { useState } from "react";
 import { registerMock } from "../mocks/register";
-import axios from "axios";
+import auth from "../services/auth";
+import dialogs from "../ui/dialogs";
 
 const Register = () => {
   const {
@@ -15,12 +16,20 @@ const Register = () => {
     handleSubmit,
     formState: { errors },
   } = useForm<RegisterUser>({
-    defaultValues: registerMock
+    defaultValues: registerMock,
   });
   const [showPassword, setShowPassword] = useState(false);
 
   const onRegister = (data: RegisterUser) => {
-   // axios.post("https://monkfish-app-z9uza.ondigitalocean.app/bcard2/users", data);
+    auth
+      .register(data)
+      .then((res) => {
+        console.log(res);
+        dialogs.success("Success", "Logged in");
+      })
+      .catch((e) => {
+        dialogs.error("Error", e.response.data);
+      });
   };
 
   return (
@@ -282,7 +291,7 @@ const Register = () => {
         </section>
         <button type="submit">Register</button>
       </form>
-      <DevTool control={control} />
+      {/* <DevTool control={control} /> */}
     </div>
   );
 };

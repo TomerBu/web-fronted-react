@@ -5,7 +5,7 @@ export const registerMock = {
     "last": "Vis"
   },
   "phone": "0512345567",
-  "email": "MosheVis@email.com",
+  "email": "MosheVis@gmail.com",
   "password": "Abc!123Abc",
   "image": {
     "url": "https://www.istockphoto.com/vector/blank-man-profile-head-icon-placeholder-gm1298261537-391152374",
@@ -17,7 +17,7 @@ export const registerMock = {
     "city": "Tel Aviv",
     "street": "Shoham",
     "houseNumber": 5,
-    "zip": 8920435
+    "zip": 35
   },
   "isBusiness": true
 }
