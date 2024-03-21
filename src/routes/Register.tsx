@@ -1,17 +1,25 @@
 import { useForm } from "react-hook-form";
 import { RegisterUser } from "../@types/types";
 import patterns from "../validation/patterns";
-import './Register.scss';
+import "./Register.scss";
+import { DevTool } from "@hookform/devtools";
+import { BsEye, BsEyeSlashFill } from "react-icons/bs";
+import { useState } from "react";
 
 const Register = () => {
   const {
     register,
+    control,
     handleSubmit,
     formState: { errors },
   } = useForm<RegisterUser>();
+  const [showPassword, setShowPassword] = useState(false);
 
   const onRegister = (data: RegisterUser) => {
     console.log(data);
+    //fetch/axios POST to api
+    //res -> 200 GOOD!
+    //res -> 400 bad request -> show error message
   };
 
   return (
@@ -101,18 +109,27 @@ const Register = () => {
 
         {/* password */}
         <section>
-          <input
-            placeholder="Password"
-            type="password"
-            {...register("password", {
-              required: "This field is mandatory",
-              pattern: {
-                value: patterns.password,
-                message:
-                  "Password must be at least 9 characters long and contain an uppercase letter, a lowercase letter, a number and one of the following characters !@#$%^&*-",
-              },
-            })}
-          />
+          <div>
+            <input
+              placeholder="Password"
+              type="password"
+              {...register("password", {
+                required: "This field is mandatory",
+                pattern: {
+                  value: patterns.password,
+                  message:
+                    "Password must be at least 9 characters long and contain an uppercase letter, a lowercase letter, a number and one of the following characters !@#$%^&*-",
+                },
+              })}
+            />
+            <button type="button"
+              onClick={() => {
+                setShowPassword((s) => !s);
+              }}
+            >
+              {showPassword ? <BsEyeSlashFill /> : <BsEye />}
+            </button>
+          </div>
           {errors.password && (
             <p className="text-red-500">{errors.password?.message}</p>
           )}
@@ -263,6 +280,7 @@ const Register = () => {
         </section>
         <button type="submit">Register</button>
       </form>
+      <DevTool control={control} />
     </div>
   );
 };
