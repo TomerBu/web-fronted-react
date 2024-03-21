@@ -1,4 +1,12 @@
 .register-container {
+  .password-container {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+  }
+
   h2 {
     @apply text-4xl mb-5 text-center;
   }
@@ -22,7 +30,7 @@
     @apply w-1/2 p-2 mb-5 rounded-md;
   }
 
-  button {
+  button[type="submit"] {
     @apply bg-blue-500 text-white p-2 rounded-md w-1/2;
   }
 

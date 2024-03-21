@@ -109,10 +109,10 @@ const Register = () => {
 
         {/* password */}
         <section>
-          <div>
+          <div className="password-container">
             <input
               placeholder="Password"
-              type="password"
+              type={showPassword ? `text` : `password`}
               {...register("password", {
                 required: "This field is mandatory",
                 pattern: {
@@ -122,7 +122,8 @@ const Register = () => {
                 },
               })}
             />
-            <button type="button"
+            <button
+              type="button"
               onClick={() => {
                 setShowPassword((s) => !s);
               }}
