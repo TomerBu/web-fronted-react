@@ -10,7 +10,7 @@ const Login = () => {
     auth
       .login(data)
       .then((res) => {
-        console.log(res.data);
+        localStorage.setItem('jwt', res.data);
       })
       .catch((e) => {
         dialogs.error("Login Error", e.response.data);

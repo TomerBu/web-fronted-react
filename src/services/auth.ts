@@ -7,9 +7,10 @@ export const loginUrl = `${baseUrl}/users/login`;
 
 export const register = (data: RegisterUser) => axios.post(usersUrl, data);
 export const login = (data: LoginUser) => axios.post(loginUrl, data);
-
+// import {login, register} from './auth.ts'
 export const auth = {
   register, login
 };
+//import auth from './auth.ts'
 
 export default auth;
