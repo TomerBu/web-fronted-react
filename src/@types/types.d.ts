@@ -1,3 +1,7 @@
+export type LoginUser = {
+  email: string;
+  password: string;
+};
 // type for the object
 export type RegisterUser = {
   name: {

@@ -8,8 +8,10 @@ import { useState } from "react";
 import { registerMock } from "../mocks/register";
 import auth from "../services/auth";
 import dialogs from "../ui/dialogs";
+import { useNavigate } from "react-router-dom";
 
 const Register = () => {
+  const navigate = useNavigate();
   const {
     register,
     control,
@@ -23,9 +25,11 @@ const Register = () => {
   const onRegister = (data: RegisterUser) => {
     auth
       .register(data)
-      .then((res) => {
-        console.log(res);
-        dialogs.success("Success", "Logged in");
+      .then(() => {
+        dialogs.success("Success", "Register").then(() => {
+          navigate("/login");
+        });
+        //go login
       })
       .catch((e) => {
         dialogs.error("Error", e.response.data);

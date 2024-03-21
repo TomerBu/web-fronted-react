@@ -1,7 +1,14 @@
-const Login = () => {
-  return (
-    <div>Login</div>
-  )
-}
+import { useForm } from "react-hook-form";
+import { LoginUser } from "../@types/types";
 
-export default Login
+const Login = () => {
+  
+  const {} = useForm<LoginUser>();
+  return (
+    <div>
+      <form></form>
+    </div>
+  );
+};
+
+export default Login;
