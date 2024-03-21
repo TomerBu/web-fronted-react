@@ -5,6 +5,8 @@ import "./Register.scss";
 import { DevTool } from "@hookform/devtools";
 import { BsEye, BsEyeSlashFill } from "react-icons/bs";
 import { useState } from "react";
+import { registerMock } from "../mocks/register";
+import axios from "axios";
 
 const Register = () => {
   const {
@@ -12,14 +14,13 @@ const Register = () => {
     control,
     handleSubmit,
     formState: { errors },
-  } = useForm<RegisterUser>();
+  } = useForm<RegisterUser>({
+    defaultValues: registerMock
+  });
   const [showPassword, setShowPassword] = useState(false);
 
   const onRegister = (data: RegisterUser) => {
-    console.log(data);
-    //fetch/axios POST to api
-    //res -> 200 GOOD!
-    //res -> 400 bad request -> show error message
+   // axios.post("https://monkfish-app-z9uza.ondigitalocean.app/bcard2/users", data);
   };
 
   return (
