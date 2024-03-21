@@ -12,5 +12,5 @@ export const auth = {
   register, login
 };
 //import auth from './auth.ts'
-
+ 
 export default auth;

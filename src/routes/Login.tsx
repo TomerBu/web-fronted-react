@@ -7,10 +7,13 @@ import dialogs from "../ui/dialogs";
 const Login = () => {
   // function that is invoked after successful submission:
   const onLogin = (data: LoginUser) => {
+  
     auth
       .login(data)
       .then((res) => {
+        // save the jwt
         localStorage.setItem('jwt', res.data);
+        console.log(res.data);
       })
       .catch((e) => {
         dialogs.error("Login Error", e.response.data);
