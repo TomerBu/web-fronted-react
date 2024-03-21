@@ -3,10 +3,22 @@ import { LoginUser } from "../@types/types";
 
 const Login = () => {
   
-  const {} = useForm<LoginUser>();
+  // function that is invoked after successful submission:
+  function onLogin(data: LoginUser) {}
+
+  const {register, handleSubmit, formState:{errors}} = useForm<LoginUser>();
   return (
     <div>
-      <form></form>
+      <h2>Login Page</h2>
+      <form onSubmit={handleSubmit(onLogin)}>
+          {/* email */}
+          <section></section>
+
+          {/* password */}
+          <section></section>
+
+          <button>Login</button>
+      </form>
     </div>
   );
 };
