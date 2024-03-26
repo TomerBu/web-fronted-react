@@ -2,18 +2,24 @@ import { useForm } from "react-hook-form";
 import { LoginUser } from "../@types/types";
 import patterns from "../validation/patterns";
 import auth from "../services/auth";
-import dialogs from "../ui/dialogs";
+import dialogs, { showSuccessDialog } from "../ui/dialogs";
+import { useContext } from "react";
+import { AuthContext } from "../contexts/AuthContext";
+import { useNavigate } from "react-router-dom";
 
 const Login = () => {
-  // function that is invoked after successful submission:
+  const navigate = useNavigate();
+  const { login } = useContext(AuthContext);
+
   const onLogin = (data: LoginUser) => {
-  
     auth
       .login(data)
       .then((res) => {
-        // save the jwt
-        localStorage.setItem('jwt', res.data);
-        console.log(res.data);
+        showSuccessDialog("Login", "Logged in").then(() => {
+          login(res.data);
+          // send the user to home page
+          navigate("/");
+        });
       })
       .catch((e) => {
         dialogs.error("Login Error", e.response.data);
