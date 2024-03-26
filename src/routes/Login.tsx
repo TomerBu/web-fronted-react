@@ -40,6 +40,9 @@ const Login = () => {
         <section>
           <input
             placeholder="Email"
+            autoCapitalize="true"
+            autoCorrect="false"
+            autoComplete="email"
             type="email"
             {...register("email", {
               required: "This field is mandatory",
@@ -52,6 +55,7 @@ const Login = () => {
         {/* password */}
         <section>
           <input
+            autoComplete="current-password"
             placeholder="Password"
             type="password"
             {...register("password", {
