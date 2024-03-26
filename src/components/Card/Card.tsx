@@ -4,7 +4,7 @@ interface CardProps {
   children: ReactNode;
 }
 
-const Card:FC<CardProps>  = ({children}) => {
+const Card = ({ children }) => {
   return <div className="card-component">{children}</div>;
 };
 
@@ -12,11 +12,9 @@ export default Card;
 
 /*
     <Card>
-        <>
             <div>hi</div>
             <div>hi</div>
             <div>hi</div>
-        </>    
     <Card/>    
 
 
