@@ -1,6 +1,7 @@
 import { NavLink } from "react-router-dom";
 import "./Navbar.scss";
 import {FaHome} from 'react-icons/fa';
+import DarkModeToggle from "../DarkModeToggle/DarkModeToggle";
 
 const Navbar = () => {
   return (
@@ -15,6 +16,7 @@ const Navbar = () => {
       <div className="nav-right">
         <NavLink to="/register">Register</NavLink>
         <NavLink to="/login">Login</NavLink>
+        <DarkModeToggle/>
       </div>
     </nav>
   );
