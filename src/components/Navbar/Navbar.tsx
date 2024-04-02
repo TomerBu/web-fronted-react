@@ -20,10 +20,16 @@ const Navbar = () => {
       <div className="nav-right">
         {!isLoggedIn && <NavLink to="/register">Register</NavLink>}
         {!isLoggedIn && <NavLink to="/login">Login</NavLink>}
-        {isLoggedIn && <button onClick={()=>{
-          logout();
-          navigate("/");
-        }}>Logout</button>}
+        {isLoggedIn && (
+          <button
+            onClick={() => {
+              logout();
+              navigate("/login");
+            }}
+          >
+            Logout
+          </button>
+        )}
         <DarkModeToggle />
       </div>
     </nav>
