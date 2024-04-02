@@ -1,10 +1,10 @@
 import { useEffect, useState } from "react";
-import { Card } from "../@types/types";
+import { CardType } from "../@types/types";
 import { getCards } from "../services/cards";
 import { Link } from "react-router-dom";
 
 const Cards = () => {
-  const [cards, setCards] = useState<Card[]>([]);
+  const [cards, setCards] = useState<CardType[]>([]);
 
   //SRP:
   useEffect(() => {

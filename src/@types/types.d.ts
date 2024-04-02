@@ -27,7 +27,7 @@ export type RegisterUser = {
   isBusiness: boolean;
 };
 
-export type Card = {
+export type CardType = {
   _id: string;
   title: string;
   subtitle: string;
