@@ -55,3 +55,9 @@ export type CardType = {
   createdAt: string;
   __v: number;
 };
+
+export type ErrorType = {
+  status: number;
+  message: string;
+  details: string;
+};

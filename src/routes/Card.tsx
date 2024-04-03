@@ -1,28 +1,33 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
-import { CardType } from "../@types/types";
+import { CardType, ErrorType } from "../@types/types";
 import { getCardById } from "../services/cards";
 
 const Card = () => {
+
   // dynamic route: /cards/:id
   const { id } = useParams();
   const [card, setCard] = useState<CardType>();
-
-  if (!id) {
-    return <div>Error, No Such Card 404</div>;
-  }
+  const [error, setError] = useState<ErrorType>();
 
   useEffect(() => {
-    getCardById(id)
+    getCardById(id ?? "")
       .then((res) => {
         setCard(res.data);
       })
       .catch((e) => {
-        // setError / state
-        alert(JSON.stringify(e));
+        const status = e.response.status;
+        const message = e.message;
+        const details = e.response.data;
+
+        setError({ status, message, details });
       });
   }, []);
-  return (
+  return error ? (
+    <div>
+      <h2>{error.message}</h2>
+    </div>
+  ) : (
     <div>
       <h2>{card?.title}</h2>
       <p>{card?.subtitle}</p>
