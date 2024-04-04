@@ -1,5 +1,6 @@
-import { Button } from "@mui/material";
-import { useState } from "react";
+import { Button, Stack, TextField } from "@mui/material";
+import axios from "axios";
+import { useEffect, useState } from "react";
 
 const Item = ({ text, collapsed, id, callback }) => {
   if (collapsed) {
@@ -18,39 +19,32 @@ const Item = ({ text, collapsed, id, callback }) => {
 };
 
 const Playground = () => {
-  const [data, setData] = useState([
-    { text: "item 1", id: 1, collapsed: true },
-    { text: "item 2", id: 2, collapsed: true },
-    { text: "item 3", id: 3, collapsed: true },
-  ]);
-  
+  const [search, setSearch] = useState("");
+  const [results, setResults] = useState([]);
+  const api = `https://rickandmortyapi.com/api/character/?name=${search}`;
+
+  useEffect(() => {
+    axios.get(api).then((res)=>{
+      setResults(res.data.results);
+    });
+  }, [search]);
+
   return (
-    <div>
-      <Button variant="text">Im a button</Button>
+    <Stack>
+      <TextField
+        onChange={(e) => {
+          setSearch(e.target.value);
+        }}
+        variant="filled"
+        label="Search"
+      />
 
-      {data.map((item) => (
-        <Item
-          key={item.id}
-          text={item.text}
-          collapsed={item.collapsed}
-          id={item.id}
-          callback={(id) => {
-            // child {1} was clicked
-            console.log(id);
+      <Button variant="contained">Search</Button>
 
-            const copy = [...data];
-            const index = copy.findIndex((item) => item.id === id);
-            //close all the items:
-            for(let i = 0 ;i < copy.length; i++){
-                copy[i].collapsed = true;
-            }
-            //toggle the clicked item:
-            copy[index].collapsed = !copy[index].collapsed;
-            setData(copy);
-          }}
-        />
+      {results.map((r) => (
+        <div key={r.id}>{r.name}</div>
       ))}
-    </div>
+    </Stack>
   );
 };
 
