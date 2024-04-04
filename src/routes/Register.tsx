@@ -24,12 +24,12 @@ const Register = () => {
 
   const onRegister = (data: RegisterUser) => {
     auth
-      .register(data)
-      .then(() => {
+      .register(data) //request
+      .then((res) => {//201 response
+        localStorage.setItem("user_id", res.data._id);
         dialogs.success("Success", "Register").then(() => {
           navigate("/login");
         });
-        //go login
       })
       .catch((e) => {
         dialogs.error("Error", e.response.data);
