@@ -4,6 +4,7 @@ import { FaHome } from "react-icons/fa";
 import DarkModeToggle from "../DarkModeToggle/DarkModeToggle";
 import { useContext } from "react";
 import { AuthContext } from "../../contexts/AuthContext";
+import { RxAvatar } from "react-icons/rx";
 
 const Navbar = () => {
   const { isLoggedIn, logout } = useContext(AuthContext);
@@ -30,6 +31,8 @@ const Navbar = () => {
             Logout
           </button>
         )}
+
+        {isLoggedIn && <NavLink to="/profile"><RxAvatar/></NavLink>}
         <DarkModeToggle />
       </div>
     </nav>
