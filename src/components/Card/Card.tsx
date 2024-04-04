@@ -1,28 +1,8 @@
-import { FC, ReactNode } from "react";
 import "./Card.scss";
-interface CardProps {
-  children: ReactNode;
-}
+import { FCC } from "../../@types/types";
 
-const Card = ({ children }) => {
+const Card:FCC = ({ children }) => {
   return <div className="card-component">{children}</div>;
 };
 
 export default Card;
-
-/*
-    <Card>
-            <div>hi</div>
-            <div>hi</div>
-            <div>hi</div>
-    <Card/>    
-
-
-    <Card>
-        <>
-            <div>hi</div>
-            <div>hi</div>
-            <div>hi</div>
-        </>    
-    <Card/>    
-*/

@@ -1,3 +1,4 @@
+import { ReactNode } from 'react';
 export type LoginUser = {
   email: string;
   password: string;
@@ -61,3 +62,7 @@ export type ErrorType = {
   message: string;
   details: string;
 };
+
+
+// טיפוס לפונקציה שמקבלת ילדים ומחזירה אלמנט של ראקט
+export type FCC = ({ children: ReactNode }) => ReactNode;
