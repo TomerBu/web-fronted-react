@@ -25,7 +25,8 @@ const Register = () => {
   const onRegister = (data: RegisterUser) => {
     auth
       .register(data) //request
-      .then((res) => {//201 response
+      .then((res) => {
+        //201 response
         localStorage.setItem("user_id", res.data._id);
         dialogs.success("Success", "Register").then(() => {
           navigate("/login");
@@ -282,13 +283,7 @@ const Register = () => {
         {/* isBusiness */}
         <section className="checkbox-container">
           <label htmlFor="isBusiness">Business</label>
-          <input
-            id="isBusiness"
-            type="checkbox"
-            {...register("isBusiness", {
-              required: "This field is mandatory",
-            })}
-          />
+          <input id="isBusiness" type="checkbox" {...register("isBusiness")} />
           {errors.isBusiness && (
             <p className="text-red-500">{errors.isBusiness?.message}</p>
           )}
