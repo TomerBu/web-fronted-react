@@ -31,11 +31,7 @@ export const router = createBrowserRouter([
       },
       {
         path: "/playground",
-        element: (
-          <ProtectedRoute>
-            <Playground />
-          </ProtectedRoute>
-        ),
+        element: <Playground />,
       },
       { path: "/practice", element: <Practice /> },
     ],

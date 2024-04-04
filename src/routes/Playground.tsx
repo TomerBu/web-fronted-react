@@ -1,3 +1,4 @@
+import { Button } from "@mui/material";
 import { useState } from "react";
 
 const Item = ({ text, collapsed, id, callback }) => {
@@ -25,6 +26,8 @@ const Playground = () => {
   
   return (
     <div>
+      <Button variant="text">Im a button</Button>
+
       {data.map((item) => (
         <Item
           key={item.id}
