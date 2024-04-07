@@ -1,5 +1,10 @@
 import { Button, Stack, Typography } from "@mui/material";
 
+// export const x = 1;
+//import {x} from './'
+
+// export default x;
+// import x from './'
 import {
   memo,
   useCallback,
