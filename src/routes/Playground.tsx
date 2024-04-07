@@ -1,8 +1,6 @@
-import { Button, Stack, TextField } from "@mui/material";
-import axios from "axios";
-import { useEffect, useRef, useState } from "react";
-import { CardType } from "../@types/types";
+import { Button } from "@mui/material";
 import { useCounter } from "../hooks/useCounter";
+import { useAuth } from "../hooks/useAuth";
 
 const Item = ({ text, collapsed, id, callback }) => {
   if (collapsed) {
@@ -21,6 +19,7 @@ const Item = ({ text, collapsed, id, callback }) => {
 };
 
 const Playground = () => {
+
   const { count, setCount } = useCounter();
   const { count: count2, setCount: setCount2 } = useCounter();
   return (
