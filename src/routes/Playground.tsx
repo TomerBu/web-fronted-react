@@ -20,26 +20,21 @@ const Item = ({ text, collapsed, id, callback }) => {
 };
 
 const Playground = () => {
-  const api = `https://monkfish-app-z9uza.ondigitalocean.app/bcard2/cards`;
-  const [allCards, setAllCards] = useState<CardType[]>([]);
-  const filteredCards = allCards.filter((c) => c.likes.length > 0);
+  const [time, setTime] = useState("");
 
   useEffect(() => {
-    axios.get(api).then((res) => {
-      setAllCards(res.data);
-    });
+    const interval = setInterval(() => {
+      const date = new Date();
+      setTime(`${date}`);
+    }, 1000);
+
+    //cleanup = run code when the component is unMounted
+    return () => {
+      clearInterval(interval);
+    };
   }, []);
 
-  return (
-    <Stack>
-      {filteredCards.map((c) => (
-        <div key={c._id}>
-          <h2>{c.title}</h2>
-          <span>Likes: {c.likes.length}</span>
-        </div>
-      ))}
-    </Stack>
-  );
+  return <Stack>{time}</Stack>;
 };
 
 export default Playground;
