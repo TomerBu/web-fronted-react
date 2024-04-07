@@ -22,30 +22,21 @@ const Item = ({ text, collapsed, id, callback }) => {
 const Playground = () => {
   const api = `https://monkfish-app-z9uza.ondigitalocean.app/bcard2/cards`;
   const [allCards, setAllCards] = useState<CardType[]>([]);
-  const [filteredCards, setFilteredCards] = useState<CardType[]>([]);
-  const [search, setSearch] = useState("");
+  const filteredCards = allCards.filter((c) => c.likes.length > 0);
 
   useEffect(() => {
-    axios.get(api).then((res) => setAllCards(res.data));
+    axios.get(api).then((res) => {
+      setAllCards(res.data);
+    });
   }, []);
-
-  useEffect(() => {
-    const f = allCards.filter((c) => c.title.includes(search));
-    setFilteredCards(f);
-  }, [search]);
 
   return (
     <Stack>
-      <TextField
-        onChange={(e) => {
-          setSearch(e.currentTarget.value);
-        }}
-        variant="outlined"
-        label="Search"
-        required
-      />
       {filteredCards.map((c) => (
-        <div key={c._id}>{c.title}</div>
+        <div key={c._id}>
+          <h2>{c.title}</h2>
+          <span>Likes: {c.likes.length}</span>
+        </div>
       ))}
     </Stack>
   );
