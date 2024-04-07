@@ -1,13 +1,12 @@
-import { NavLink, useNavigate } from "react-router-dom";
-import "./Navbar.scss";
 import { FaHome } from "react-icons/fa";
-import DarkModeToggle from "../DarkModeToggle/DarkModeToggle";
-import { useContext } from "react";
-import { AuthContext } from "../../contexts/AuthContext";
 import { RxAvatar } from "react-icons/rx";
+import { NavLink, useNavigate } from "react-router-dom";
+import { useAuth } from "../../hooks/useAuth";
+import DarkModeToggle from "../DarkModeToggle/DarkModeToggle";
+import "./Navbar.scss";
 
 const Navbar = () => {
-  const { isLoggedIn, logout } = useContext(AuthContext);
+  const { isLoggedIn, logout } = useAuth();
   const navigate = useNavigate();
   return (
     <nav className="site-navbar">

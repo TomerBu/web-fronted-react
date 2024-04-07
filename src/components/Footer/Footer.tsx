@@ -1,8 +1,7 @@
-import { useContext } from "react";
-import { ThemeContext } from "../../contexts/ThemeContext";
+import { useTheme } from "../../hooks/useTheme";
 
 function Footer() {
-  const { toggle } = useContext(ThemeContext);
+  const { toggle } = useTheme();
   return (
     <footer className="bg-slate-700 md:bg-pink-600 p-5 text-white text-5xl font-extralight  text-center">
       <button onClick={() => toggle()}>Click me</button>

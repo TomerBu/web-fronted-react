@@ -1,15 +1,14 @@
 import { useForm } from "react-hook-form";
+import { useNavigate } from "react-router-dom";
 import { LoginUser } from "../@types/types";
-import patterns from "../validation/patterns";
+import { useAuth } from "../hooks/useAuth";
 import auth from "../services/auth";
 import dialogs, { showSuccessDialog } from "../ui/dialogs";
-import { useContext } from "react";
-import { AuthContext } from "../contexts/AuthContext";
-import { useNavigate } from "react-router-dom";
+import patterns from "../validation/patterns";
 
 const Login = () => {
   const navigate = useNavigate();
-  const { login } = useContext(AuthContext);
+  const { login } = useAuth();
 
   const onLogin = (data: LoginUser) => {
     auth
