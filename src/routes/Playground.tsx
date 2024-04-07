@@ -1,6 +1,5 @@
-import { Button, Stack } from "@mui/material";
-import { useCounter } from "../hooks/useCounter";
-import { useAuth } from "../hooks/useAuth";
+import { Button, Stack, Typography } from "@mui/material";
+
 import {
   memo,
   useCallback,
@@ -37,12 +36,9 @@ const MyComponent = memo(({ text, callback }: MyComponentProps) => {
 });
 
 const Playground = () => {
-  const [count, setCount] = useState(0);
-
   return (
     <>
-      <MyComponent text="hi" callback={useCallback(() => {}, [])} />
-      <Button onClick={() => setCount((c) => c + 1)}>{count}</Button>
+      <Counter />
     </>
   );
 };
@@ -73,8 +69,7 @@ const FizzBuzz = () => {
 
   return (
     <Stack>
-      {currentNumber}
-      <Button onClick={() => setCurrentNumber((c) => c + 1)}>Next</Button>;
+      <Counter />
     </Stack>
   );
 };
@@ -98,7 +93,12 @@ const Counter = () => {
   const [state, dispatch] = useReducer(reducer, initialState);
   return (
     <Stack>
-      <h2>{state}</h2>
+      <Typography variant="h2" component="h2">
+        {state}
+      </Typography>
+      <Button onClick={() => dispatch("plus")}>Increment</Button>
+      <Button onClick={() => dispatch("minus")}>Decrement</Button>
+      <Button onClick={() => dispatch("reset")}>Reset</Button>
     </Stack>
   );
 };
