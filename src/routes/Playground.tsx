@@ -19,30 +19,17 @@ const Item = ({ text, collapsed, id, callback }) => {
 };
 
 const Playground = () => {
-  const [search, setSearch] = useState("");
-  const [results, setResults] = useState([]);
-  const api = `https://rickandmortyapi.com/api/character/?name=${search}`;
+  const api = `https://monkfish-app-z9uza.ondigitalocean.app/bcard2/cards`;
+  const [allCards, setAllCards] = useState([]);
 
   useEffect(() => {
-    axios.get(api).then((res)=>{
-      setResults(res.data.results);
-    });
-  }, [search]);
+    axios.get(api).then((res) => setAllCards(res.data));
+  }, []);
 
   return (
     <Stack>
-      <TextField
-        onChange={(e) => {
-          setSearch(e.target.value);
-        }}
-        variant="filled"
-        label="Search"
-      />
-
-      <Button variant="contained">Search</Button>
-
-      {results.map((r) => (
-        <div key={r.id}>{r.name}</div>
+      {allCards.map((c) => (
+        <div key={c._id}>{c.title}</div>
       ))}
     </Stack>
   );
